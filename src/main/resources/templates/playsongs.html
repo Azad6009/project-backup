@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play Songs</title>
+    <link rel="stylesheet" href="playsongs.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo">
+        <h1>BeatBox</h1>
+      </div>
+      <div class="navbar">
+        <ul>
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-house"></i>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <span>Search</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="fa-solid fa-book"></span>
+              <span>Your Library </span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <span class="fa-solid fa-list"></span>
+              <span>Create Playlist</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="fa-solid fa-heart"></span>
+              <span>Liked Songs</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="policies">
+        <ul>
+          <li>
+            <a href="#">Cookies</a>
+          </li>
+          <li>
+            <a href="#">Privacy </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <div class="topbar">
+        <div class="prev-next">
+          <button type="button" class="fa-solid fa-arrow-left"></button>
+          <button type="button" class="fa-solid fa-arrow-right"></button>
+        </div>
+        <div class="navbar1">
+          <form action="logout">
+            <input type="submit" value="LOG OUT" class="btn" id="log-out-btn" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="table" id="customers_table">
+      <div class="table__header">
+        <h1>PlaySongs</h1>
+        <div class="input-group">
+          <input type="search" placeholder="Search Data..." />
+        </div>
+      </div>
+      <div class="table__body">
+        <table>
+          <thead>
+            <tr>
+              <th>Name <span class="icon-arrow">&UpArrow;</span></th>
+              <th>Artist <span class="icon-arrow">&UpArrow;</span></th>
+              <th>Genre <span class="icon-arrow">&UpArrow;</span></th>
+              <th>Play <span class="icon-arrow">&UpArrow;</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="song-row" th:each="song, status : ${songs}">
+              <td class="song-name" th:text="${song.name}"></td>
+              <td class="song-artist" th:text="${song.artist}"></td>
+              <td class="song-genre" th:text="${song.genre}"></td>
+              <td class="song-play">
+                <div class="audio-player" id="audio-player-${status.index}">
+                  <audio controls>
+                    <source th:src="${song.link}" type="audio/mpeg" />
+                  </audio>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

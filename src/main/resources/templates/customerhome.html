@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CUSTOMER HOME</title>
+<link rel="stylesheet" type="text/css" href="customerhome.css" />
+
+</head>
+<body>
+	
+
+<div class="container">
+        <h1>USER's PAGE</h1>
+        <div class="button-box">
+
+<div th:unless="${ispremium}" class="non-premium" >
+	<form action="pay">
+		<input type="submit" value="GET PREMIUM" class="btn">
+	</form>
+	<br>
+	<form action="logout">
+		<input type="submit" value="LOGOUT" class="btn">
+	</form>
+</div>
+
+<div th:if="${ispremium}" class="premium">
+	<form action="playsongs">
+	<input type="submit" value="PLAY SONGS" class="btn">
+	 </form>
+	 <form action="logout">
+		<input type="submit" value="LOGOUT" class="btn">
+	</form>
+</div>
+</div>
+</div>	
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" type="text/css" href="registration.css" />
+</head>
+<body>
+<div class="container">
+    <form action="/register" method="post" class="registration-form">
+        <h1 class="heading">Sign Up</h1>
+        
+        <div class="username">
+            <label for="username"></label> 
+            <input type="text" id="username" name="username" placeholder="Enter user name" />
+        </div>
+        
+        <div class="email">
+            <label for="email"></label>
+            <input type="email" id="email" name="email" placeholder="Enter a valid email"/>
+        </div>
+        
+        <div class="password">
+            <label for="password"></label>
+            <input type="password" id="password" name="password" placeholder="Enter a password"/>
+        </div>
+        
+        <div class="gender">
+            <label for="gender"  class="category">Gender:</label> <br/>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label>
+        </div>
+        
+        <div class="role">
+            <label for="role"  class="category">Role:</label><br/>
+            <input type="radio" id="admin" name="role" value="admin">
+            <label for="admin">Admin</label>
+            <input type="radio" id="customer" name="role" value="customer">
+            <label for="customer">Customer</label>
+        </div>
+        
+        <div class="address">
+            <label for="address"></label><br/> 
+            <textarea id="address" name="address" rows="2" required  placeholder="Address"></textarea>
+        </div>
+        
+        <input type="submit" value="CONTINUE">
+    </form>
+</div>
+</body>
+</html>

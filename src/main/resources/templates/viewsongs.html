@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Playlist</title>
+<link rel="stylesheet" type="text/css" href="viewsongs.css" />
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo">
+        <h1>BeatBox</h1>
+      </div>
+      <div class="navbar">
+        <ul>
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-house"></i>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <span>Search</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="fa-solid fa-book"></span>
+              <span>Your Library </span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <span class="fa-solid fa-list"></span>
+              <span>Create Playlist</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="fa-solid fa-heart"></span>
+              <span>Liked Songs</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="policies">
+        <ul>
+          <li>
+            <a href="#">Cookies</a>
+          </li>
+          <li>
+            <a href="#">Privacy </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <div class="topbar">
+        <div class="prev-next">
+          <button type="button" >Back</button>
+        </div>
+        <div class="navbar1">
+          <button type="button">Log Out</button>
+        </div>
+      </div>
+    </div>
+	<div class="container1">
+		<div class="playlist">
+			<h2 class="playlist-title">Music Album</h2>
+			<div class="song">
+				<table class="song-table" border="2">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Artist</th>
+							<th>Genre</th>
+							<th>Play</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="song-row" th:each="song, status : ${songs}">
+							<td class="song-name" th:text="${song.name}"></td>
+							<td class="song-artist" th:text="${song.artist}"></td>
+							<td class="song-genre" th:text="${song.genre}"></td>
+							<td class="song-play">
+								<div class="audio-player" id="audio-player-${status.index}">
+									<audio controls>
+										<source th:src="${song.link}" type="audio/mpeg">
+									</audio>
+								</div>
+
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
